@@ -36,6 +36,30 @@
       font-size: 0.95rem;
       color: #555;
     }
+    .waitlist-form {
+      margin-top: 40px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    input[type="email"] {
+      padding: 10px;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #success-message {
+      color: green;
+      display: none;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -56,14 +80,35 @@
 
   <p>We’re based in Faisalabad, Pakistan. Moving to San Francisco soon. This is not just a company. It’s our life’s work.</p>
 
-  <p>If this resonates, reach out. We’re not hiring yet  but we will be.</p>
+  <p>If this resonates, reach out. We’re not hiring yet but we will be.</p>
+
+  <div class="waitlist-form">
+    <h2>Join the Waitlist</h2>
+    <p>If you'd like early access to Astralink, drop your email below. We'll keep you updated — no spam, ever.</p>
+
+    <form action="https://formspree.io/f/manjbvve" method="POST">
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <button type="submit">Join Waitlist</button>
+    </form>
+
+    <p id="success-message">Thank you! You're on the waitlist.</p>
+  </div>
 
   <footer>
     Founder<br>
     Muhammad Hassaan<br>
-    April 2025
-    
+    April 2025<br>
     m.hassaan.haroonn@gmail.com
   </footer>
+
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function () {
+      setTimeout(() => {
+        document.getElementById('success-message').style.display = 'block';
+      }, 800);
+    });
+  </script>
 </body>
 </html>
